@@ -11,15 +11,15 @@ Exercise 1 has been completed for you:
 
 const maxOfTwoNumbers = (x, y) => {
     if (x >= y) {
-      return x;
+        return x;
     } else {
-      return y;
+        return y;
     }
-  }
-  
-  console.log('Exercise 1 Result:', maxOfTwoNumbers(3, 9));
+}
 
-  /*
+console.log('Exercise 1 Result:', maxOfTwoNumbers(3, 9));
+
+/*
 
 Exercise 2: isAdult()
 
@@ -53,10 +53,10 @@ Example: isCharAVowel('a') should return true.
 
 Complete the exercise in the space below:
 */
-function isCharAVowel(x){
-    if(x=5){
+function isCharAVowel(x) {
+    if (x === 'a' || 'e' || 'i' || 'u' || 'o') {
         return "True";
-    }else {
+    } else {
         return "false";
     }
 }
@@ -111,9 +111,16 @@ Example: maxOfThree(17, 4, 9) should return 17.
 
 Complete the exercise in the space below:
 */
+function maxOfThree(x, y, z) {
+    if (x >= y && x >= z)
+        return x;
+} else if (y >= x && y >= z) {
+    return y;
+} else {
+    return z;
+}
 
-let maxNumber = maxOfThree(5, 10, 8);
-console.log('Exercise 6 Result:', maxOfThree(5, 10, 8));
+console.log('Exercise 6 Result:', maxOfThree(x, y, z));
 
 /*
 Exercise 7: calculateTip()
@@ -127,8 +134,9 @@ Example: calculateTip(50, 20) should return 10.
 Complete the exercise in the space below:
 */
 
-let tip = calculateTip(50, 20);
-
+function calculateTip(billAmount, tipPercentage) {
+    return (billAmount * tipPercentage) / 100;
+}
 console.log('Exercise 7 Result:', calculateTip(50, 20));
 
 /*
@@ -145,8 +153,15 @@ Example: convertTemperature(32, 'F') should return 0 (Celsius).
 Complete the exercise in the space below:
 */
 
-let tempInCelsius = convertTemperature(32, 'C');
-
+function convertTemperature(temperature, scale) {
+    if (scale === 'C') {
+        return (temperature * 9/5) + 32;
+    } else if (scale === 'F') {
+        return (temperature - 32) * 5/9;
+    } else {
+        return 'Invalid scale. Use "C" for Celsius or "F" for Fahrenheit.';
+    }
+}
 console.log('Exercise 8 Result:', convertTemperature(32, "C"));
 
 /*
@@ -166,8 +181,23 @@ Complete the exercise in the space below:
 */
 
 function basicCalculator(num1, num2, operation) {
-    {
-            return 10 - 5;
+    switch(operation) {
+        case 'add':
+            return num1 + num2;
+        case 'subtract':
+            return num1 - num2;
+        case 'multiply':
+            return num1 * num2;
+        case 'divide':
+            if (num2 !== 0) {
+                return num1 / num2;
+            } else {
+                return 'Error: Division by zero';
+            }
+        default:
+            return 'Error: Invalid operation';
+    }
+}
 
 console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
 
